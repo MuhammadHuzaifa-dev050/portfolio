@@ -1,0 +1,29 @@
+---
+// Skills.astro
+const skills = [
+  { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg', color: 'border-blue-500' },
+  { name: 'VUE.JS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg', color: 'border-green-500' },
+  { name: 'POSTGRESQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg', color: 'border-blue-400' },
+  { name: 'JAVASCRIPT', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg', color: 'border-yellow-400' },
+  { name: 'REACT', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg', color: 'border-cyan-400' },
+  { name: 'NODE.JS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg', color: 'border-green-600' },
+  { name: 'TAILWIND', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', color: 'border-cyan-300' },
+  { name: 'ASTRO', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg', color: 'border-orange-500' },
+];
+---
+<section id="skills" class="w-full pt-16 pb-8 z-10 relative">
+      <h3 class="text-sm font-bold text-white tracking-widest uppercase mb-8 flex items-center gap-2">
+        <span class="text-cyan-accent text-lg">&lt;/&gt;</span> SKILLS
+      </h3>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-y-10 gap-x-8">
+        {skills.map((skill) => (
+          <div class="flex flex-col items-center group cursor-pointer">
+            <span class="text-[10px] text-text-muted font-bold tracking-widest mb-3 uppercase group-hover:text-white transition-colors">{skill.name}</span>
+            <div class="w-12 h-12 flex items-center justify-center mb-2 group-hover:-translate-y-1 transition-transform duration-300">
+              <img src={skill.icon} alt={skill.name} class="w-10 h-10 object-contain drop-shadow-md" />
+            </div>
+            <div class={`w-8 border-b-2 ${skill.color} opacity-70 group-hover:opacity-100 group-hover:w-12 transition-all duration-300`}></div>
+          </div>
+        ))}
+</section>

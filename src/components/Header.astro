@@ -1,0 +1,27 @@
+---
+// Header.astro
+---
+<header class="w-full max-w-6xl mx-auto px-6 py-8 flex items-center justify-between z-10 relative">
+  <!-- Logo -->
+  <a href="/" class="text-xl font-heading font-bold flex items-center gap-1 group">
+    <span class="text-cyan-accent font-mono transition-transform group-hover:-translate-x-1">&lt;</span>
+    <span class="text-white hover:text-cyan-accent transition-colors duration-300">/ Muhammad Huzaifa</span>
+    <span class="text-cyan-accent font-mono transition-transform group-hover:translate-x-1">&gt;</span>
+  </a>
+
+  <!-- Navigation -->
+  <nav class="hidden md:flex items-center gap-6">
+    <a href="#about" class="text-xs font-medium text-text-main hover:text-cyan-accent relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-cyan-accent hover:after:w-full after:transition-all after:duration-300">About</a>
+    <a href="#experience" class="text-xs font-medium text-text-muted hover:text-cyan-accent relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-cyan-accent hover:after:w-full after:transition-all after:duration-300">Experience</a>
+    <a href="#skills" class="text-xs font-medium text-text-muted hover:text-cyan-accent relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-cyan-accent hover:after:w-full after:transition-all after:duration-300">Skills</a>
+    <a href="#projects" class="text-xs font-medium text-text-muted hover:text-cyan-accent relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-cyan-accent hover:after:w-full after:transition-all after:duration-300">Projects</a>
+    <a href="#contact" class="text-xs font-medium text-text-muted hover:text-cyan-accent relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-cyan-accent hover:after:w-full after:transition-all after:duration-300">Contact</a>
+  </nav>
+
+  <!-- Mobile Menu Button (simplified) -->
+  <button class="md:hidden text-text-main hover:text-cyan-accent focus:outline-none">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+    </svg>
+  </button>
+</header>

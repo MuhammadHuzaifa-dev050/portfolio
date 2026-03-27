@@ -1,0 +1,42 @@
+---
+// CurrentWork.astro
+---
+<div class="bg-[#18181B] rounded-xl border border-white/5 relative overflow-hidden group flex flex-col shadow-2xl">
+  
+  <!-- Image Header Section -->
+  <div class="relative w-full h-48 overflow-hidden border-b border-white/5">
+    <!-- Neon orange top accent line -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-accent to-orange-400 z-20"></div>
+
+    <img src="/ecommerce-widget.png" alt="Featured Project" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 z-0" />
+    
+    <!-- Transparent gradient overlay to keep text readable while showing the image underneath -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10 pointer-events-none"></div>
+    
+    <!-- Text content overlaid on image -->
+    <div class="absolute bottom-0 left-0 w-full p-5 z-20">
+      <div class="flex items-center gap-3 mb-2">
+        <div class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-accent opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-accent"></span>
+        </div>
+        <span class="text-xs font-bold text-cyan-accent tracking-widest uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Currently Working On</span>
+      </div>
+
+      <h4 class="text-white font-heading font-medium text-xl leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+        Next-Gen E-Commerce Platform
+      </h4>
+    </div>
+  </div>
+
+  <!-- Bottom Details Section -->
+  <div class="p-5 pt-4 flex-1 flex flex-col justify-between bg-transparent">
+    <p class="text-text-muted text-sm leading-relaxed mb-4">
+      Architecting a fully headless, SSR-powered e-commerce platform using Astro, optimizing core web vitals and ensuring perfect SEO/AEO indexability.
+    </p>
+
+    <a href="#contact" class="inline-flex items-center justify-center w-full py-3 px-4 bg-cyan-accent/10 text-cyan-accent font-medium text-sm rounded hover:bg-cyan-accent hover:text-dark-bg transition-colors duration-300">
+      Read Details
+    </a>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  /* Obsidian and Charcoal for a high-contrast, confident tech backdrop */
+  --color-dark-bg: #09090B; 
+  --color-dark-surface: #18181B; 
+  
+  /* Retaining the class name 'cyan-accent' used across the site, but 
+     remapping it to a blazing Neon Orange/Red to signify energy, confidence, and eagerness to learn */
+  --color-cyan-accent: #FF4500; 
+
+  /* Crisp text contrasts */
+  --color-text-muted: #A1A1AA;
+  --color-text-main: #FAFAFA;
+  
+  /* Sharp, modern, self-assured typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-main);
+  letter-spacing: -0.02em; /* Tighter letter spacing for a sharper, critical-thinker feel */
+}
+
+b, strong {
+  color: var(--color-text-main);
+}
+
+/* 
+  Analytical grid pattern replacing the cloudy blocks.
+  Represents structure, logic, and a critical-thinker's mindset.
+*/
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 69, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 69, 0, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: -1;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+}

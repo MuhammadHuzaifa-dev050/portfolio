@@ -1,0 +1,36 @@
+---
+// Experience.astro
+const experiences = [
+  {
+    role: "Full-Stack Developer",
+    company: "WebWhizz",
+    date: "2025 - Present",
+    description: "I build scalable web and mobile apps from database to UI, specializing in SEO/AEO for maximum visibility. My work has cut load times by 40%, boosted organic traffic by 25%, and maintained 100% uptime during major traffic spikes."
+  },
+  {
+    role: "Freelance Developer",
+    company: "Self-Employed",
+    date: "2024 - Present",
+    description: "Since 2024, I’ve operated as a specialized freelancer, delivering high-performance digital products like custom Amazon data extraction extensions and automated car service booking platforms. I focus on end-to-end execution, transforming complex niche requirements into scalable web and mobile solutions."
+  }
+];
+---
+<section id="experience" class="w-full pt-16 pb-12 z-10 relative">
+      <h3 class="text-sm font-bold text-white tracking-widest uppercase mb-8 flex items-center gap-2">
+        <span class="text-cyan-accent text-lg">&lt;/&gt;</span> EXPERIENCE
+      </h3>
+      <div class="space-y-8 pl-4 border-l-2 border-white/10">
+        {experiences.map((exp) => (
+          <div class="relative">
+            <div class="absolute w-3 h-3 bg-cyan-accent rounded-full -left-[23px] top-1"></div>
+            <h4 class="text-white font-heading font-semibold text-xl">{exp.role}</h4>
+            <div class="flex items-center gap-3 text-sm mt-1 mb-3">
+              <span class="text-cyan-accent font-bold">{exp.company}</span>
+              <span class="text-text-muted">•</span>
+              <span class="text-text-muted">{exp.date}</span>
+            </div>
+            <p class="text-text-muted leading-relaxed">{exp.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>

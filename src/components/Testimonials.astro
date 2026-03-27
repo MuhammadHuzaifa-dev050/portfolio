@@ -1,0 +1,33 @@
+---
+// Testimonials.astro
+const testimonials = [
+  {
+    quote: "Muhammad Huzaifa is a rare find in the dev world. During his time at WebWhizz, he consistently tackled complex projects with incredible speed and a high level of accuracy that’s hard to come by. What really stood out was his seamless approach to problem-solving—he just gets it. Whether it was a tight deadline or a technical hurdle, I always knew I could rely on him to deliver exactly what we needed without any friction.",
+    name: "Khurram Saeed",
+    title: "CEO, WebWhizz Services"
+  }
+];
+---
+<section id="testimonials" class="w-full pt-16 pb-12 z-10 relative">
+      <h3 class="text-sm font-bold text-white tracking-widest uppercase mb-8 flex items-center gap-2">
+        <span class="text-cyan-accent text-lg">&lt;/&gt;</span> TESTIMONIALS
+      </h3>
+      <div class="grid gap-6">
+        {testimonials.map((test) => (
+          <div class="relative p-8 bg-dark-surface rounded-xl border border-white/5">
+            <svg class="absolute top-4 left-4 w-8 h-8 text-cyan-accent/20" fill="currentColor" viewBox="0 0 32 32"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.896 3.456-8.352 9.12-8.352 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/></svg>
+            <p class="text-text-muted italic leading-relaxed mb-6 mt-4 relative z-10">"{test.quote}"</p>
+            <div class="flex items-center gap-3">
+              <!-- Dynamic avatar initials -->
+              <div class="w-10 h-10 rounded-full bg-cyan-accent/20 flex items-center justify-center text-cyan-accent font-bold">
+                {test.name.split(' ').map((n) => n[0]).join('').substring(0, 2)}
+              </div>
+              <div>
+                <h5 class="text-white text-sm font-bold">{test.name}</h5>
+                <p class="text-cyan-accent text-xs">{test.title}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>

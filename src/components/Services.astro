@@ -1,0 +1,30 @@
+---
+// Services.astro
+const services = [
+  {
+    title: "Web Development",
+    description: "Custom, high-performance web applications built with modern frameworks like React and Astro."
+  },
+  {
+    title: "Mobile App Development",
+    description: "Cross-platform mobile applications ensuring a seamless experience on both iOS and Android."
+  },
+  {
+    title: "SEO & AEO Optimization",
+    description: "Optimizing your digital presence to rank higher on search engines and generative AI answers."
+  }
+];
+---
+<section id="services" class="w-full pt-16 pb-12 z-10 relative">
+      <h3 class="text-sm font-bold text-white tracking-widest uppercase mb-8 flex items-center gap-2">
+        <span class="text-cyan-accent text-lg">&lt;/&gt;</span> SERVICES
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {services.map((service) => (
+          <div class="bg-[#171f2c] p-6 rounded-lg border border-white/5 hover:border-cyan-accent/30 transition-all duration-300">
+            <h4 class="text-white font-heading font-semibold text-lg mb-3">{service.title}</h4>
+            <p class="text-text-muted text-sm leading-relaxed">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
