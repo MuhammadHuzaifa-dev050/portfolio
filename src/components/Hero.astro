@@ -1,11 +1,13 @@
 ---
 // Hero.astro
+import { Image } from 'astro:assets';
+import heroImg from '../assets/hero-image.png';
 ---
 <section class="w-full max-w-6xl mx-auto px-6 pt-16 pb-24 flex flex-col-reverse md:flex-row items-center justify-between z-10 relative">
   
   <div class="w-full md:w-1/2 flex flex-col items-start mt-12 md:mt-0">
     <h2 class="text-cyan-accent text-sm md:text-xs font-semibold tracking-widest uppercase mb-3">
-      Full-Stack & Apps Developer
+      Full-Stack & Apps Developer | SEO & AEO Optimization
     </h2>
     <h1 class="text-5xl md:text-6xl font-heading font-bold text-white mb-6">
       Muhammad Huzaifa
@@ -14,8 +16,8 @@
       I’m a full-stack developer who believes a great interface is only half the battle. That’s why I focus on building high-performance applications that are fully optimized for search and discovery. Whether it's a web platform or a mobile app, I turn complex concepts into elegant solutions designed to help your business thrive in a crowded digital space.
     </p>
     
-    <a href="#resume" class="inline-block px-6 py-3 border border-cyan-accent text-cyan-accent font-medium text-sm hover:bg-cyan-accent/10 hover:-translate-y-1 transition-all duration-300 shadow-[0_0_15px_rgba(0,229,255,0.15)] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]">
-      DOWNLOAD RESUME
+    <a href="/resume" target="_blank" rel="noopener noreferrer" oncontextmenu="return false;" class="inline-block px-6 py-3 border border-cyan-accent text-cyan-accent font-medium text-sm hover:bg-cyan-accent/10 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-cyan-accent focus:ring-offset-2 focus:ring-offset-[#09090B] transition-all duration-300 shadow-[0_0_15px_rgba(0,229,255,0.15)] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]">
+      VIEW RESUME
     </a>
   </div>
 
@@ -24,7 +26,7 @@
       <!-- Glow effect behind image -->
       <div class="absolute inset-0 bg-cyan-accent/20 blur-[100px] rounded-full pointer-events-none"></div>
       
-      <img src="/hero-image.png" alt="Developer working" class="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)] z-10 relative" />
+      <Image src={heroImg} alt="Developer working" format="webp" loading="eager" fetchpriority="high" class="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)] z-10 relative" />
     </div>
   </div>
 </section>

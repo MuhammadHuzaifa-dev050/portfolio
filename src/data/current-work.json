@@ -1,0 +1,8 @@
+{
+  "badge": "Currently Working On",
+  "title": "Next-Gen E-Commerce Platform",
+  "image": "/ecommerce-widget.png",
+  "description": "Architecting a fully headless, SSR-powered e-commerce platform using Astro, optimizing core web vitals and ensuring perfect SEO/AEO indexability.",
+  "buttonText": "Read Details",
+  "link": "#contact"
+}

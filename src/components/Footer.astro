@@ -1,0 +1,87 @@
+---
+// Footer.astro
+---
+<footer id="contact" class="w-full bg-[#09090B] relative z-20 mt-16 flex flex-col items-center">
+  
+  <!-- Upper Footer: Contact Form -->
+  <div class="w-full bg-gradient-to-b from-transparent to-[#0b1219] border-t border-b border-white/5 py-24 px-6 relative overflow-hidden">
+    <!-- Grid blur accent -->
+    <div class="absolute inset-0 bg-grid opacity-30 select-none pointer-events-none mix-blend-overlay"></div>
+    
+    <div class="max-w-6xl mx-auto flex flex-col gap-16 relative z-10">
+      
+      <div class="flex flex-col gap-4 text-center md:text-left">
+        <h2 class="text-4xl md:text-6xl font-heading font-black text-white tracking-tight">Let's build something <span class="text-cyan-accent">extraordinary.</span></h2>
+        <p class="text-text-muted text-lg max-w-2xl">Have a question or project idea? Drop a message below and I'll get back to you shortly.</p>
+      </div>
+
+      <!-- 
+        IMPORTANT: Paste your FormsPree URL in the 'action' attribute below.
+      -->
+      <form 
+        action="https://formspree.io/f/xlgozbaw" 
+        method="POST"
+        class="w-full grid grid-cols-1 md:grid-cols-2 gap-12"
+      >
+        <!-- Left Side: Inputs -->
+        <div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-2 relative group">
+            <label for="name" class="text-[10px] font-bold text-cyan-accent tracking-[0.2em] uppercase pl-1 transition-colors">Name</label>
+            <input type="text" name="name" id="name" required autocomplete="name" placeholder="Your full name" class="w-full bg-[#111822] border-b-2 border-white/10 px-5 py-4 text-white placeholder-text-muted/30 focus:outline-none focus:border-cyan-accent focus:ring-1 focus:ring-cyan-accent focus:bg-white/5 transition-all duration-300" />
+          </div>
+          
+          <div class="flex flex-col gap-2 relative group">
+            <label for="email" class="text-[10px] font-bold text-cyan-accent tracking-[0.2em] uppercase pl-1 transition-colors">Email</label>
+            <input type="email" name="email" id="email" required autocomplete="email" placeholder="your@email.com" class="w-full bg-[#111822] border-b-2 border-white/10 px-5 py-4 text-white placeholder-text-muted/30 focus:outline-none focus:border-cyan-accent focus:ring-1 focus:ring-cyan-accent focus:bg-white/5 transition-all duration-300" />
+          </div>
+          
+          <div class="flex flex-col gap-2 relative group">
+            <label for="company" class="text-[10px] font-bold text-cyan-accent tracking-[0.2em] uppercase pl-1 transition-colors">Company</label>
+            <input type="text" name="company" id="company" autocomplete="organization" placeholder="Organization name" class="w-full bg-[#111822] border-b-2 border-white/10 px-5 py-4 text-white placeholder-text-muted/30 focus:outline-none focus:border-cyan-accent focus:ring-1 focus:ring-cyan-accent focus:bg-white/5 transition-all duration-300" />
+          </div>
+          
+          <div class="flex flex-col gap-2 relative group">
+            <label for="designation" class="text-[10px] font-bold text-cyan-accent tracking-[0.2em] uppercase pl-1 transition-colors">Designation</label>
+            <input type="text" name="designation" id="designation" autocomplete="organization-title" placeholder="Your role" class="w-full bg-[#111822] border-b-2 border-white/10 px-5 py-4 text-white placeholder-text-muted/30 focus:outline-none focus:border-cyan-accent focus:ring-1 focus:ring-cyan-accent focus:bg-white/5 transition-all duration-300" />
+          </div>
+        </div>
+
+        <!-- Right Side: Query Box & Submit -->
+        <div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-2 h-full relative group">
+            <label for="query" class="text-[10px] font-bold text-cyan-accent tracking-[0.2em] uppercase pl-1 transition-colors">Your Query</label>
+            <textarea name="query" id="query" required autocomplete="off" placeholder="Tell me about your project, goals, or what you need help with..." class="w-full h-full min-h-[200px] bg-[#111822] border-b-2 border-white/10 px-5 py-4 text-white placeholder-text-muted/30 resize-none focus:outline-none focus:border-cyan-accent focus:ring-1 focus:ring-cyan-accent focus:bg-white/5 transition-all duration-300"></textarea>
+          </div>
+          
+          <button type="submit" class="w-full py-5 bg-cyan-accent text-[#0b1219] rounded-sm font-bold tracking-[0.2em] uppercase text-sm hover:bg-white focus:outline-none focus:ring-4 focus:ring-cyan-accent/50 transition-all duration-500 shadow-[0_0_20px_rgba(255,69,0,0.15)] hover:shadow-[0_0_40px_rgba(255,69,0,0.4)]">
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lower Footer -->
+  <div class="w-full max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
+    <!-- Social Links -->
+    <div class="flex items-center gap-8">
+      <a href="https://github.com/MuhammadHuzaifa-dev050" target="_blank" class="text-text-muted hover:text-cyan-accent transition-colors flex items-center gap-2 text-sm font-medium">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/muhammad-huzaifa-46393833a" target="_blank" class="text-text-muted hover:text-cyan-accent transition-colors flex items-center gap-2 text-sm font-medium">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:huzaifa.arshad741@gmail.com" class="text-text-muted hover:text-cyan-accent transition-colors flex items-center gap-2 text-sm font-medium">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Email
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-[10px] uppercase text-text-muted/60 font-bold tracking-[0.2em]">
+      © 2026 Muhammad Huzaifa
+    </div>
+  </div>
+</footer>
