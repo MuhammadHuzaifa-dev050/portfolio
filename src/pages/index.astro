@@ -10,14 +10,9 @@ import Education from '../components/Education.astro';
 import Skills from '../components/Skills.astro';
 import Projects from '../components/Projects.astro';
 import Testimonials from '../components/Testimonials.astro';
-
-import { getImage } from 'astro:assets';
-import heroImg from '../assets/hero-image.png';
-
-const optimizedHero = await getImage({ src: heroImg, format: 'webp' });
 ---
 
-<Layout title="Portfolio | Muhammad Huzaifa" preloadImage={optimizedHero.src}>
+<Layout title="Portfolio | Muhammad Huzaifa" preloadImage="/hero-image.png">
 	<Header />
 	
 	<main class="w-full">

@@ -1,7 +1,5 @@
 ---
 // Hero.astro
-import { Image } from 'astro:assets';
-import heroImg from '../assets/hero-image.png';
 ---
 <section class="w-full max-w-6xl mx-auto px-6 pt-16 pb-24 flex flex-col-reverse md:flex-row items-center justify-between z-10 relative">
   
@@ -26,7 +24,7 @@ import heroImg from '../assets/hero-image.png';
       <!-- Glow effect behind image -->
       <div class="absolute inset-0 bg-cyan-accent/20 blur-[100px] rounded-full pointer-events-none"></div>
       
-      <Image src={heroImg} alt="Developer working" format="webp" loading="eager" fetchpriority="high" class="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)] z-10 relative" />
+      <img src="/hero-image.png" alt="Developer working" class="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)] z-10 relative" loading="eager" fetchpriority="high" />
     </div>
   </div>
 </section>
