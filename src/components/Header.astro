@@ -1,19 +1,22 @@
 ---
 // Header.astro
+import CurrentWork from './CurrentWork.astro';
+
 const { isProjectPage = false } = Astro.props;
 ---
-<header class="w-full max-w-6xl mx-auto px-6 py-8 flex items-center justify-between z-10 relative">
+
+<header class="w-full max-w-6xl mx-auto px-6 py-8 flex items-center justify-between z-50 relative">
   <!-- Logo -->
-  <a href="/" class="text-xl font-heading font-bold flex items-center gap-1 group">
+  <a href="/" class="text-xl font-heading font-bold flex items-center gap-1 group z-50">
     <span class="text-cyan-accent font-mono transition-transform group-hover:-translate-x-1">&lt;</span>
     <span class="text-white hover:text-cyan-accent transition-colors duration-300">/ Muhammad Huzaifa</span>
     <span class="text-cyan-accent font-mono transition-transform group-hover:translate-x-1">&gt;</span>
   </a>
 
-  <!-- Navigation -->
+  <!-- Desktop Navigation -->
   <nav class="hidden md:flex items-center gap-6">
     {isProjectPage ? (
-      <a href="#contact" class="px-6 py-2.5 bg-cyan-accent text-[#0b1219] rounded-md font-bold text-[10px] tracking-widest uppercase hover:bg-white transition-all duration-300 shadow-[0_0_15px_rgba(0,229,255,0.2)]">
+      <a href="/#contact" class="px-6 py-2.5 bg-cyan-accent text-[#0b1219] rounded-md font-bold text-[10px] tracking-widest uppercase hover:bg-white transition-all duration-300 shadow-[0_0_15px_rgba(0,229,255,0.2)]">
         GET IN TOUCH
       </a>
     ) : (
@@ -27,10 +30,84 @@ const { isProjectPage = false } = Astro.props;
     )}
   </nav>
 
-  <!-- Mobile Menu Button (simplified) -->
-  <button class="md:hidden text-text-main hover:text-cyan-accent focus:outline-none">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <!-- Mobile Menu Button -->
+  <button id="mobile-menu-toggle" class="md:hidden text-text-main hover:text-cyan-accent focus:outline-none z-50 p-2" aria-label="Toggle Menu">
+    <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
     </svg>
+    <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
   </button>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-dark-bg/98 backdrop-blur-xl z-40 hidden flex-col items-center justify-between pt-32 pb-12 overflow-y-auto transition-all duration-300 ease-in-out">
+    <nav class="flex flex-col items-center gap-8 mb-12">
+      {isProjectPage ? (
+        <a href="/#contact" class="px-8 py-3 bg-cyan-accent text-[#0b1219] rounded-md font-bold text-sm tracking-widest uppercase hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(0,229,255,0.3)]">
+          GET IN TOUCH
+        </a>
+      ) : (
+        <>
+          <a href="#about" class="text-xl font-semibold text-white hover:text-cyan-accent">About</a>
+          <a href="#experience" class="text-xl font-semibold text-white hover:text-cyan-accent">Experience</a>
+          <a href="#skills" class="text-xl font-semibold text-white hover:text-cyan-accent">Skills</a>
+          <a href="#projects" class="text-xl font-semibold text-white hover:text-cyan-accent">Projects</a>
+          <a href="#contact" class="text-xl font-semibold text-white hover:text-cyan-accent">Contact</a>
+        </>
+      )}
+    </nav>
+    
+    <!-- Mobile Featured Project Widget -->
+    <div class="px-6 w-full max-w-sm mx-auto">
+      <div class="text-[10px] font-bold text-cyan-accent/60 tracking-[0.3em] uppercase mb-4 text-center">Featured Project</div>
+      <CurrentWork />
+    </div>
+  </div>
 </header>
+
+<script>
+  function setupHeader() {
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+    const links = document.querySelectorAll('#mobile-menu nav a');
+
+    if (toggle && menu) {
+      function toggleMenu() {
+        const isHidden = menu.classList.contains('hidden');
+        if (isHidden) {
+          menu.classList.remove('hidden');
+          menu.classList.add('flex');
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+          document.body.style.overflow = 'hidden'; // Prevent scrollind
+        } else {
+          menu.classList.add('hidden');
+          menu.classList.remove('flex');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      }
+
+      toggle.addEventListener('click', toggleMenu);
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+          menu.classList.remove('flex');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  }
+
+  // Support for Astro view transitions
+  document.addEventListener('astro:page-load', setupHeader);
+  // Initial run
+  setupHeader();
+</script>

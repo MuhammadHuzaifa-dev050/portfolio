@@ -70,14 +70,14 @@ const projects = allProjects.sort((a, b) => (a.data.order || 0) - (b.data.order 
       <>
         <button 
           id="prev-btn"
-          class="absolute left-2 top-1/2 -translate-y-1/2 z-30 text-white flex items-center justify-center transition-all duration-500 hover:text-cyan-accent hover:scale-110 p-2 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
+          class="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-30 text-white items-center justify-center transition-all duration-500 hover:text-cyan-accent hover:scale-110 p-2 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
           aria-label="Previous Projects"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
         </button>
         <button 
           id="next-btn"
-          class="absolute right-2 top-1/2 -translate-y-1/2 z-30 text-white flex items-center justify-center transition-all duration-500 hover:text-cyan-accent hover:scale-110 p-2 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
+          class="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-30 text-white items-center justify-center transition-all duration-500 hover:text-cyan-accent hover:scale-110 p-2 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
           aria-label="Next Projects"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
@@ -172,6 +172,63 @@ const projects = allProjects.sort((a, b) => (a.data.order || 0) - (b.data.order 
 
     window.addEventListener('resize', updateSlider);
     updateSlider(); // Initial setup
+
+    // Touch Swipe Support
+    let touchStartX = 0;
+    let touchMoveX = 0;
+    let isDragging = false;
+    let startTranslate = 0;
+
+    function getTranslateX() {
+      const style = window.getComputedStyle(track);
+      const matrix = new WebKitCSSMatrix(style.transform);
+      return matrix.m41;
+    }
+
+    track.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      startTranslate = getTranslateX();
+      isDragging = true;
+      track.style.transition = 'none';
+    }, { passive: true });
+
+    track.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      touchMoveX = e.touches[0].clientX;
+      const diff = touchMoveX - touchStartX;
+      
+      // Add resistance at bounds
+      const maxMove = -( (totalCards - (window.innerWidth < 768 ? 1 : 2)) * (track.clientWidth / (window.innerWidth < 768 ? 1 : 2)) );
+      let newTranslate = startTranslate + diff;
+      
+      if (newTranslate > 0) newTranslate = diff / 3;
+      if (newTranslate < maxMove) newTranslate = maxMove + (diff / 3);
+
+      track.style.transform = `translateX(${newTranslate}px)`;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      track.style.transition = 'transform 0.5s ease-out';
+      
+      const diff = touchMoveX - touchStartX;
+      const threshold = 50; // pixels to trigger slide
+
+      if (Math.abs(diff) > threshold) {
+        if (diff > 0 && currentIndex > 0) {
+          currentIndex--;
+        } else if (diff < 0) {
+          const isMobile = window.innerWidth < 768;
+          const maxIndex = totalCards - (isMobile ? 1 : 2);
+          if (currentIndex < maxIndex) {
+            currentIndex++;
+          }
+        }
+      }
+      
+      updateSlider();
+    });
   }
 
   // Support for Astro view transitions
